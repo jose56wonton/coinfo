@@ -70,21 +70,10 @@ class DetailedExpansionPanel extends Component {
       <div className={classes.root}>
         <ExpansionPanel defaultExpanded>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>  
-          <TableRow
-                      hover
-                      onClick={event => this.handleClick(event, data.id)}
-                      onKeyDown={event => this.handleKeyDown(event, data.id)}
-                      role="checkbox"
-                      tabIndex={-1}
-                      key={data.id}
-                    >                  
-                    <TableCell padding="none">{data.name}</TableCell>
-                    <TableCell numeric>{data.calories}</TableCell>
-                    <TableCell numeric>{data.fat}</TableCell>
-                    <TableCell numeric>{data.carbs}</TableCell>
-                    <TableCell numeric>{data.protein}</TableCell>
+                           
+                    
                       
-                    </TableRow>        
+                           
            
           </ExpansionPanelSummary>
           <ExpansionPanelDetails className={classes.details}>
