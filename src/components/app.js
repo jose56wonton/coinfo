@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Nav from './nav';
-import CoinTable from './coin_table';
-
+import CoinTableContainer from '../containers/coin_table_container';
+import EnhancedTable from './nice';
 
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider>
+      <div>
         <Nav />
-        <CoinTable />
-      </MuiThemeProvider>
+        <CoinTableContainer />
+      </div>
     );
   }
 }

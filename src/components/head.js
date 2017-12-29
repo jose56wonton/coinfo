@@ -18,7 +18,7 @@ const columnData = [
 
 
 
-class EnhancedTableHead extends React.Component {
+class Head extends React.Component {
   static propTypes = {
     onRequestSort: PropTypes.func.isRequired,
     order: PropTypes.string.isRequired,
@@ -31,7 +31,7 @@ class EnhancedTableHead extends React.Component {
   };
 
   render() {
-    const {  order, orderBy, rowCount } = this.props;
+    const {  order, orderBy } = this.props;
 
     return (
       <TableHead>
@@ -67,4 +67,4 @@ class EnhancedTableHead extends React.Component {
   }
 }
 
-export default EnhancedTableHead;
+export default Head;
