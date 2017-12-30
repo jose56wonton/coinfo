@@ -3,17 +3,15 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import {BrowserRouter, Route,Switch} from 'react-router-dom';
-import promise from 'redux-promise'
 import registerServiceWorker from './utils/registerServiceWorker';
-
+import thunk from 'redux-thunk';
 import 'typeface-roboto';
 import reducers from './reducers';
 
 import App from './components/app';
-const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+const store = createStore(reducers,applyMiddleware(thunk));
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
+  <Provider store={store}>
      <BrowserRouter>
        <Switch>
          <Route path="/coin/:name" component={App}/>

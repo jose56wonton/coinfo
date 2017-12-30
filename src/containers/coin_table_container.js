@@ -5,11 +5,7 @@ import * as api from '../api.js';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
 
-let counter = 0;
-function createData() {
-  counter += 1;
-  return { id: counter, name, calories, fat, carbs, protein };
-}
+
 
 class CoinTableContainer extends React.Component {
   constructor(props, context) {
@@ -18,14 +14,7 @@ class CoinTableContainer extends React.Component {
       order: 'asc',
       orderBy: 'price',
       selected: {},
-      data: [
-        createData('BitCoin', 14000, 111111, 67, 4.3),
-        createData('Ethereum', 800, 21111111, 51, 4.9),
-        createData('Ripple', 1.5, 1111111, 24, 6.0),
-        createData('Bitcoin Cash', 21110, 6.0, 24, 4.0),
-        createData('Litecoin', 250, 11111, 49, 3.9),
-        createData('Cardano', .4, 31111111, 87, 6.5),
-        createData('IOTA', 3.6, 9111.0, 37, 4.3)
+      data: [        
       ].sort((a, b) => (a.calories < b.calories ? -1 : 1)),
       page: 0,
       rowsPerPage: 10,
@@ -33,7 +22,17 @@ class CoinTableContainer extends React.Component {
   }
 
   componentWillMount(){
-    this.props.getList();
+    this.props.fetchCoinList(); 
+    //Dont fucking judge me is 2:45am on Friday night
+    setTimeout(this.updatePrices.bind(this), 1000);
+  }
+  updatePrices(){
+    const {page,rowsPerPage} = this.state;    
+    console.log("page: ", this.state.page);
+    console.log("rowperpage: ", this.state.rowsPerPage);
+    const coins = this.props.coins;
+    const coinSeg = coins.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(a => a.Name).join();
+    this.props.fetchCoinPrices(coinSeg);     
   }
   handleRequestSort = (event, property) => {
     const orderBy = property;
@@ -51,21 +50,21 @@ class CoinTableContainer extends React.Component {
     this.setState({ data, order, orderBy });
   };
   handleClick = (event, id) => {    
-    console.log(id);  
-
     this.setState({ selected: this.state.data[id] });
   };
   handleChangePage = (event, page) => {
-    this.setState({ page });
+    this.setState({ page },()=>{this.updatePrices()});
+    
   };
   handleChangeRowsPerPage = event => {
-    this.setState({ rowsPerPage: event.target.value });
+    this.setState({ rowsPerPage: event.target.value },()=>{this.updatePrices()});
+    
   };
   render() {
     return(
     <CoinTable 
     classes={this.props.classes}
-    data={this.state.data}
+    data={this.props.coins}
     order={this.state.order}
     orderBy={this.state.orderBy}
     selected={this.state.selected}

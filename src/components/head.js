@@ -12,8 +12,8 @@ const columnData = [
   { id: 'coin', numeric: false, disablePadding: false, label: 'Coin            ' },
   { id: 'price', numeric: true, disablePadding: false, label: 'Price' },
   { id: 'cap', numeric: true, disablePadding: false, label: 'Cap' },
-  { id: '24h', numeric: true, disablePadding: false, label: '24h' },
-  { id: '7d', numeric: true, disablePadding: false, label: '7d' },
+  { id: '24hc', numeric: true, disablePadding: false, label: '24h Δ' },
+  { id: '24hm', numeric: true, disablePadding: false, label: '24h Max' },
 ];
 
 
