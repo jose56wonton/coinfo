@@ -16,7 +16,7 @@ const CoinTable = (props) => {
   const { data, order, orderBy, rowsPerPage, page } = props;
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
   const {handleRequestSort,handleClick,handleChangePage,handleChangeRowsPerPage} = props;
-  console.log(handleChangePage == null);
+ 
   return(
       
       <Paper className={classes.root}>    

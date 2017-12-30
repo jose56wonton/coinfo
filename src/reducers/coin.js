@@ -1,9 +1,18 @@
-import {SOME_THING} from '../actions';
-
-export default function(state=[], action){  
+import {GET_LIST} from '../actions';
+import * as api from '../api.js';
+export default function(state={}, action){  
   switch(action.type){    
-    case SOME_THING:
-      break;
+    case GET_LIST:
+      api.getList()
+      .then((response) => {
+        console.log(response);
+        return response;
+      })
+      .catch((error) => {
+        console.log(error);
+        return error;
+      })
+      
     default:
       return state;
   }

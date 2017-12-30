@@ -1,7 +1,7 @@
-export const SOME_THING = "some_thing";
-export function some_thing(values){
+export const GET_LIST = "get_list";
+export function getList(values){
   return{
-    type: SOME_THING,
+    type: GET_LIST,
     payload: values
   }
 }

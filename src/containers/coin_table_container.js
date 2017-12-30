@@ -1,9 +1,12 @@
 
 import CoinTable from '../components/coin_table';
 import React from 'react';
+import * as api from '../api.js';
+import * as actions from '../actions';
+import { connect } from 'react-redux';
 
 let counter = 0;
-function createData(name, calories, fat, carbs, protein) {
+function createData() {
   counter += 1;
   return { id: counter, name, calories, fat, carbs, protein };
 }
@@ -27,6 +30,10 @@ class CoinTableContainer extends React.Component {
       page: 0,
       rowsPerPage: 10,
     };
+  }
+
+  componentWillMount(){
+    this.props.getList();
   }
   handleRequestSort = (event, property) => {
     const orderBy = property;
@@ -72,4 +79,9 @@ class CoinTableContainer extends React.Component {
     )
   }
 }
-export default CoinTableContainer;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    coins: state.coins
+  }
+}
+export default connect(mapStateToProps,actions)(CoinTableContainer);
