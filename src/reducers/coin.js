@@ -11,8 +11,8 @@ function compareByCap(a,b){
 export default function(state=[], action){  
   switch(action.type){    
     case FETCH_COIN_LIST:
-        var arr = Object.values(action.payload.Data);
-        return arr; 
+        console.log("Action",action.payload)
+        return action.payload;
     case FETCH_COIN_PRICES:
         const curr = state.slice();
         const data = action.payload.DISPLAY;

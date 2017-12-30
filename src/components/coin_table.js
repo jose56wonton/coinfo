@@ -33,7 +33,6 @@ class CoinTable extends React.Component {
       tableData = data
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         .map(n => {
-          console.log(n);
           return (
             <TableRow
               hover
@@ -42,19 +41,19 @@ class CoinTable extends React.Component {
               key={n.id}
             >
               <TableCell>
-                {n.Name}
+                {n.name}
               </TableCell>
               <TableCell numeric>
-                {n.usd ? n.usd.PRICE : null}
+                {n.price_usd}
               </TableCell>
               <TableCell numeric>
-                {n.usd ? n.usd.MKTCAP : null}
+                {n.market_cap_usd}
               </TableCell>
               <TableCell numeric>
-                {n.usd ? n.usd.CHANGE24HOUR : null}
+                {n.percent_change_24h}
               </TableCell>
               <TableCell numeric>
-                {n.usd ? n.usd.HIGHDAY : null}
+                {n.percent_change_7d}
               </TableCell>
             </TableRow>
           );

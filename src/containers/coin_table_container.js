@@ -23,16 +23,6 @@ class CoinTableContainer extends React.Component {
 
   componentWillMount(){
     this.props.fetchCoinList(); 
-    //Dont fucking judge me is 2:45am on Friday night
-    setTimeout(this.updatePrices.bind(this), 1000);
-  }
-  updatePrices(){
-    const {page,rowsPerPage} = this.state;    
-    console.log("page: ", this.state.page);
-    console.log("rowperpage: ", this.state.rowsPerPage);
-    const coins = this.props.coins;
-    const coinSeg = coins.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(a => a.Name).join();
-    this.props.fetchCoinPrices(coinSeg);     
   }
   handleRequestSort = (event, property) => {
     const orderBy = property;
@@ -53,11 +43,11 @@ class CoinTableContainer extends React.Component {
     this.setState({ selected: this.state.data[id] });
   };
   handleChangePage = (event, page) => {
-    this.setState({ page },()=>{this.updatePrices()});
+    this.setState({ page });
     
   };
   handleChangeRowsPerPage = event => {
-    this.setState({ rowsPerPage: event.target.value },()=>{this.updatePrices()});
+    this.setState({ rowsPerPage: event.target.value });
     
   };
   render() {
