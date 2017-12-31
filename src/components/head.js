@@ -9,11 +9,11 @@ import  {
 import Tooltip from 'material-ui/Tooltip';
 
 const columnData = [
-  { id: 'coin', numeric: false, disablePadding: false, label: 'Coin            ' },
-  { id: 'price', numeric: true, disablePadding: false, label: 'Price' },
-  { id: 'cap', numeric: true, disablePadding: false, label: 'Cap' },
-  { id: '24hc', numeric: true, disablePadding: false, label: '24h Δ' },
-  { id: '24hm', numeric: true, disablePadding: false, label: '24h Max' },
+  { id: 'name', numeric: false, disablePadding: false, label: 'Coin' },
+  { id: 'price_usd', numeric: true, disablePadding: false, label: 'Price' },
+  { id: 'market_cap_usd', numeric: true, disablePadding: false, label: 'Cap' },
+  { id: 'percent_change_24h', numeric: true, disablePadding: false, label: '24h Δ' },
+  { id: 'percent_change_7d', numeric: true, disablePadding: false, label: '7d Δ' },
 ];
 
 

@@ -1,9 +1,9 @@
-import {FETCH_COIN_LIST,FETCH_COIN_PRICES} from '../actions';
+import {FETCH_COIN_LIST,SORT_COIN_LIST} from '../actions';
 
 function compareByCap(a,b){
-  if (a.SortOrder < b.SortOrder)
+  if (Number(a.market_cap_usd) < Number(b.market_cap_usd))
     return -1;
-  if (a.SortOrder > b.SortOrder)
+  if (Number(a.market_cap_usd) > Number(b.market_cap_usd))
     return 1;
   return 0;
 }
@@ -11,17 +11,28 @@ function compareByCap(a,b){
 export default function(state=[], action){  
   switch(action.type){    
     case FETCH_COIN_LIST:
-        console.log("Action",action.payload)
-        return action.payload;
-    case FETCH_COIN_PRICES:
-        const curr = state.slice();
-        const data = action.payload.DISPLAY;
-       
-        curr.forEach((ele) =>{
-          if(ele.Name in data)
-            ele['usd'] = data[ele.Name].USD;
-        })
-        return curr;              
+      // Remove objects without all the valid 
+      return action.payload.filter((ele) => {
+        return (ele.market_cap_usd !== null && 
+          ele.price_usd !== null && 
+          ele.percent_change_24h !== null &&
+          ele.percent_change_7d !==null);
+      })
+
+    case SORT_COIN_LIST:
+      // If the values are string 
+      if(action.payload.orderBy == 'name'){
+        return action.payload.order === 'desc' 
+        ? state.slice().sort((a, b) => (b[action.payload.orderBy] < a[action.payload.orderBy] ? -1 : 1))
+        : state.slice().sort((a, b) => (a[action.payload.orderBy] < b[action.payload.orderBy] ? -1 : 1));
+      }
+      else // If the values are ints in a string
+      {
+        return action.payload.order === 'desc' 
+        ? state.slice().sort((a, b) => (Number(b[action.payload.orderBy]) < Number(a[action.payload.orderBy]) ? -1 : 1))
+        : state.slice().sort((a, b) => (Number(a[action.payload.orderBy]) < Number(b[action.payload.orderBy]) ? -1 : 1));
+      }
+      
     default:
       return state;
   }

@@ -12,10 +12,9 @@ class CoinTableContainer extends React.Component {
     super(props, context);
     this.state = {
       order: 'asc',
-      orderBy: 'price',
+      orderBy: 'market_cap_usd',
       selected: {},
-      data: [        
-      ].sort((a, b) => (a.calories < b.calories ? -1 : 1)),
+      
       page: 0,
       rowsPerPage: 10,
     };
@@ -27,17 +26,13 @@ class CoinTableContainer extends React.Component {
   handleRequestSort = (event, property) => {
     const orderBy = property;
     let order = 'desc';
-
+    console.log(property);
     if (this.state.orderBy === property && this.state.order === 'desc') {
       order = 'asc';
     }
+    this.props.sortCoinList(order,orderBy);  
 
-    const data =
-      order === 'desc'
-        ? this.state.data.sort((a, b) => (b[orderBy] < a[orderBy] ? -1 : 1))
-        : this.state.data.sort((a, b) => (a[orderBy] < b[orderBy] ? -1 : 1));
-
-    this.setState({ data, order, orderBy });
+    this.setState({ order, orderBy });
   };
   handleClick = (event, id) => {    
     this.setState({ selected: this.state.data[id] });
