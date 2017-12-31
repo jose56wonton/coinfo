@@ -10,11 +10,11 @@ import Table, {
 } from "material-ui/Table";
 import Paper from "material-ui/Paper";
 import Head from "./head";
+import CoinTableRowContainer from '../containers/coin_table_row_container';
+
 
 class CoinTable extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+ 
 
   render() {
     const { classes } = this.props;
@@ -23,7 +23,6 @@ class CoinTable extends React.Component {
       rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
     const {
       handleRequestSort,
-      handleClick,
       handleChangePage,
       handleChangeRowsPerPage
     } = this.props;
@@ -32,30 +31,9 @@ class CoinTable extends React.Component {
     if (data) {
       tableData = data
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-        .map(n => {
+        .map((coin,i) => {
           return (
-            <TableRow
-              hover
-              onClick={event => handleClick(event, n.id)}
-              tabIndex={-1}
-              key={n.id}
-            >
-              <TableCell>
-                {n.name}
-              </TableCell>
-              <TableCell numeric>
-                {n.price_usd}
-              </TableCell>
-              <TableCell numeric>
-                {n.market_cap_usd}
-              </TableCell>
-              <TableCell numeric>
-                {n.percent_change_24h}
-              </TableCell>
-              <TableCell numeric>
-                {n.percent_change_7d}
-              </TableCell>
-            </TableRow>
+            <CoinTableRowContainer key={i} coin={coin} /> 
           );
         });
     }

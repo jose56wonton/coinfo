@@ -5,7 +5,7 @@ import AppBar from "material-ui/AppBar";
 import Toolbar from "material-ui/Toolbar";
 import Typography from "material-ui/Typography";
 import TextField from 'material-ui/TextField';
-
+import {Link} from 'react-router-dom';
 // #F44336
 const styles = theme => ({
   root: {
@@ -25,14 +25,16 @@ const styles = theme => ({
 });
 
 function Nav(props) {
-  const { classes } = props;
+  const { classes, handleClick} = props;
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography type="title" color="inherit" className={classes.flex}>
+          
+          <Typography style={{cursor: "pointer"}} onClick={() => handleClick()} type="title" color="inherit" className={classes.flex}>
             CoInfo
           </Typography>
+          
           <TextField
             className={classes.textField}
             margin="normal"

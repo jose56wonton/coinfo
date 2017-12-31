@@ -1,10 +1,8 @@
 
 import CoinTable from '../components/coin_table';
 import React from 'react';
-import * as api from '../api.js';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
-
 
 
 class CoinTableContainer extends React.Component {
@@ -34,9 +32,6 @@ class CoinTableContainer extends React.Component {
 
     this.setState({ order, orderBy });
   };
-  handleClick = (event, id) => {    
-    this.setState({ selected: this.state.data[id] });
-  };
   handleChangePage = (event, page) => {
     this.setState({ page });
     
@@ -56,7 +51,6 @@ class CoinTableContainer extends React.Component {
     rowsPerPage={this.state.rowsPerPage}
     page={this.state.page}   
     handleRequestSort={this.handleRequestSort}
-    handleClick={this.handleClick}
     handleChangePage={this.handleChangePage}
     handleChangeRowsPerPage={this.handleChangeRowsPerPage}
     />

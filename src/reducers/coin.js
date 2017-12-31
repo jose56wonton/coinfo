@@ -1,12 +1,6 @@
 import {FETCH_COIN_LIST,SORT_COIN_LIST} from '../actions';
 
-function compareByCap(a,b){
-  if (Number(a.market_cap_usd) < Number(b.market_cap_usd))
-    return -1;
-  if (Number(a.market_cap_usd) > Number(b.market_cap_usd))
-    return 1;
-  return 0;
-}
+
 
 export default function(state=[], action){  
   switch(action.type){    
@@ -21,7 +15,7 @@ export default function(state=[], action){
 
     case SORT_COIN_LIST:
       // If the values are string 
-      if(action.payload.orderBy == 'name'){
+      if(action.payload.orderBy === 'name'){
         return action.payload.order === 'desc' 
         ? state.slice().sort((a, b) => (b[action.payload.orderBy] < a[action.payload.orderBy] ? -1 : 1))
         : state.slice().sort((a, b) => (a[action.payload.orderBy] < b[action.payload.orderBy] ? -1 : 1));
