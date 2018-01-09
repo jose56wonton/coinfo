@@ -7,15 +7,17 @@ import registerServiceWorker from './utils/registerServiceWorker';
 import thunk from 'redux-thunk';
 import 'typeface-roboto';
 import reducers from './reducers';
-
-import App from './components/app';
+import CoinGraph from './components/show/coin_graph';
+import Index from './components/index';
+import Show from './components/show';
 const store = createStore(reducers,applyMiddleware(thunk));
 ReactDOM.render(
   <Provider store={store}>
      <BrowserRouter>
        <Switch>
-         <Route path="/coin/:name" component={App}/>
-         <Route path="/" component={App} />
+         <Route path="/coin/:name" component={Show}/>
+         <Route path="/asdf" component={CoinGraph} />
+         <Route path="/" component={Index} />
        </Switch>
      </BrowserRouter>
    </Provider>, document.getElementById('root'));

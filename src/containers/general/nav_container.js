@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav from '../components/nav';
+import Nav from '../../components/general/nav';
 import {withRouter} from 'react-router';
 class NavContainer extends Component {
   constructor(props){

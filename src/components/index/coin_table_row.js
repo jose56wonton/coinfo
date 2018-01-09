@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
-import {TableCell, TableRow} from "material-ui/Table";
+import React from "react";
+import { TableCell, TableRow } from "material-ui/Table";
 
-class CoinTableRow extends Component {
-  
-  render() {
-    const {
-      coin,
-      handleClick
-    } = this.props;
-    return (
-      <TableRow
+function CoinTableRow(props) {
+  const { coin, handleClick } = props;
+
+  return (
+    <TableRow
       hover
       onClick={() => handleClick(coin.symbol)}
       tabIndex={-1}
       key={coin.rank}
-    >
+    >  
       <TableCell>
         {coin.name}
       </TableCell>
@@ -29,11 +25,9 @@ class CoinTableRow extends Component {
       </TableCell>
       <TableCell numeric>
         {coin.percent_change_7d}
-      </TableCell>    
+      </TableCell>
     </TableRow>
-    
-    );
-  }
+  );
 }
 
 export default CoinTableRow;

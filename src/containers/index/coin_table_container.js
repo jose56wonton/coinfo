@@ -1,7 +1,7 @@
 
-import CoinTable from '../components/coin_table';
+import CoinTable from '../../components/index/coin_table';
 import React from 'react';
-import * as actions from '../actions';
+import * as actions from '../../actions';
 import { connect } from 'react-redux';
 
 
@@ -11,15 +11,16 @@ class CoinTableContainer extends React.Component {
     this.state = {
       order: 'asc',
       orderBy: 'market_cap_usd',
-      selected: {},
-      
+      selected: {},      
       page: 0,
       rowsPerPage: 10,
     };
   }
 
   componentWillMount(){
-    this.props.fetchCoinList(); 
+    if(this.props.coins){   
+      this.props.fetchCoinList();
+    } 
   }
   handleRequestSort = (event, property) => {
     const orderBy = property;

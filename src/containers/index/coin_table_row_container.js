@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CoinTableRow from '../components/coin_table_row';
+import CoinTableRow from '../../components/index/coin_table_row';
 import {withRouter} from 'react-router';
 class CoinTableRowContainer extends Component {
   constructor(props){
