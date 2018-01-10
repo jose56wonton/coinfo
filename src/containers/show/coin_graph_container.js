@@ -9,13 +9,15 @@ class CoinInfoContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: "24h"
+      time: "1DAY"
     };
   }
   componentDidMount() {
+    //this.props.fetchCoinHistory(this.props.params.params.name,this.state.time);
     if (this.props.coins) {
       this.props.fetchCoinList();
     }
+    
   }
   handleChange = event => {
     this.setState({ time: event.target.value });
@@ -24,7 +26,6 @@ class CoinInfoContainer extends Component {
     const coin = this.props.coins.filter(ele => {
       return ele.symbol === this.props.params.params.name;
     });
-    console.log(coin[0]);
     if (!coin[0]) {
       return null;
     }

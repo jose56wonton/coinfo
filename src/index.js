@@ -16,7 +16,6 @@ ReactDOM.render(
      <BrowserRouter>
        <Switch>
          <Route path="/coin/:name" component={Show}/>
-         <Route path="/asdf" component={CoinGraph} />
          <Route path="/" component={Index} />
        </Switch>
      </BrowserRouter>

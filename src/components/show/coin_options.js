@@ -43,11 +43,11 @@ function CoinGraph(props) {
                 onChange={handleChange}
                 input={<Input name="age" id="age-simple" />}
               >
-                <MenuItem value="24h">24 Hours</MenuItem>
-                <MenuItem value="7d">7 Days</MenuItem>
-                <MenuItem value="1m">1 Month</MenuItem>
-                <MenuItem value="1y">1 Year</MenuItem>
-                <MenuItem value="5y">5 Year</MenuItem>
+                <MenuItem value="1DAY">24 Hours</MenuItem>
+                <MenuItem value="7DAY">7 Days</MenuItem>
+                <MenuItem value="1MTH">1 Month</MenuItem>
+                <MenuItem value="1YRS">1 Year</MenuItem>
+                <MenuItem value="5YRS">5 Year</MenuItem>
               </Select>
             </FormControl>
           </form>

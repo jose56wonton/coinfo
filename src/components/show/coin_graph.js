@@ -11,6 +11,7 @@ const styles = theme => ({
   }),
 });
 function CoinGraph(props){
+  const { classes } = props;
   const data = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
@@ -41,7 +42,6 @@ function CoinGraph(props){
     return (
       <div>
       <Paper className={classes.root} elevation={4}> 
-        <h2>Line Example</h2>
         <Line data={data} />
       </Paper>
       </div>
