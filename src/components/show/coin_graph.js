@@ -2,7 +2,7 @@ import React from 'react';
 import {Line} from 'react-chartjs-2';
 import Paper from 'material-ui/Paper';
 import { withStyles } from 'material-ui/styles';
-
+import moment from 'moment';
 const styles = theme => ({
   root: theme.mixins.gutters({
     paddingTop: 16,
@@ -11,9 +11,17 @@ const styles = theme => ({
   }),
 });
 function CoinGraph(props){
-  const { classes } = props;
+  const { classes,coin,time,history } = props;
+  if(history== null){
+    return null;
+  }
+  const labels = history.map(a => moment(a.time_close).utc().format('MM-DD-YYYY'));
+  const dataSet = history.map(a => a.price_close)
+  const maxPrice = Math.max(...dataSet) * 1.2;
+  const minPrice = Math.min(...dataSet) * .8;
+  console.log("coin_graph_container",props,labels,dataSet);
   const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: labels,
     datasets: [
       {
         label: 'My First dataset',
@@ -34,15 +42,33 @@ function CoinGraph(props){
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [65, 59, 80, 81, 56, 55, 40]
+        data: dataSet
       }
     ]
   };
+  const options = {
+    scales: {
+        xAxes: [{
+            type: 'time',
+          ticks: {
+            maxTicksLimit: 10
+          }
+          
+        }],
+        yAxes: [{
+          ticks: {
+              min: minPrice,
+              max: maxPrice,
+              maxTicksLimit: 6
+          }
+      }]
+    }
+}
   
     return (
       <div>
       <Paper className={classes.root} elevation={4}> 
-        <Line data={data} />
+        <Line data={data} options={options}/>
       </Paper>
       </div>
     );

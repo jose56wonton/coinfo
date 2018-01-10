@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import PaperTile from "../general/paper_tile";
 import Grid from "material-ui/Grid/Grid";
 import { withStyles } from "material-ui/styles";
 import Input, { InputLabel } from "material-ui/Input";
 import { MenuItem } from "material-ui/Menu";
-import { FormControl, FormHelperText } from "material-ui/Form";
+import { FormControl } from "material-ui/Form";
 import Select from "material-ui/Select";
 import Paper from "material-ui/Paper";
 
@@ -28,7 +27,6 @@ const styles = theme => ({
   })
 });
 function CoinGraph(props) {
-  console.log(props);
   const { classes, time, handleChange } = props;
 
   return (

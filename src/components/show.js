@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import NavContainer from "../containers/general/nav_container";
 import CoinInfoContainer from "../containers/show/coin_info_container";
 import CoinGraphContainer from "../containers/show/coin_graph_container";

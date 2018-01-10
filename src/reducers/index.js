@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux';
 import coins from './coin';
-const rootReducer = combineReducers({coins});
+import history from './history';
+const rootReducer = combineReducers({coins,history});
 export default rootReducer;

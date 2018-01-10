@@ -10,10 +10,9 @@ const styles = theme => ({
 });
 
 function CoinInfo(props) {
-  const { classes } = props;
-  if(!props.coin[0])
+  if(!props.coin)
     return null;
-  const coin = props.coin[0];
+  const coin = props.coin;
   return (
       <Grid container spacing={24}>
         <Grid item xs={12} sm={4}>

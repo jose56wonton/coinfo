@@ -10,7 +10,6 @@ const styles = theme => ({
 });
 
 function CoinInfo(props) {
-  const { classes } = props;
   if(!props.coin[0])
     return null;
   const coin = props.coin[0];

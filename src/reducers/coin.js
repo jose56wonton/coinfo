@@ -1,6 +1,4 @@
-import {FETCH_COIN_LIST,SORT_COIN_LIST, FETCH_COIN_HISTORY} from '../actions';
-
-
+import {FETCH_COIN_LIST,SORT_COIN_LIST} from '../actions';
 
 export default function(state=[], action){  
   switch(action.type){    
@@ -12,6 +10,7 @@ export default function(state=[], action){
           ele.percent_change_24h !== null &&
           ele.percent_change_7d !==null);
       })*/
+      //console.log('LIST',action.payload)
       return action.payload;
     case SORT_COIN_LIST:
       // If the values are string 
@@ -25,18 +24,7 @@ export default function(state=[], action){
         return action.payload.order === 'asc' 
         ? state.slice().sort((a, b) => (Number(b[action.payload.orderBy]) < Number(a[action.payload.orderBy]) ? -1 : 1))
         : state.slice().sort((a, b) => (Number(a[action.payload.orderBy]) < Number(b[action.payload.orderBy]) ? -1 : 1));
-      }
-    case FETCH_COIN_HISTORY:
-      /*const newState = state.map((coin) => {
-        if(coin.symbol === action.coin){
-          coin[action.period] = action.payload;
-          return coin;
-        }
-        return coin;
-      })*/
-      //console.log("FETCH HISTORY",newState)
-      return state;
-      break;      
+      }   
     default:
       return state;
   }

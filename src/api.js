@@ -13,4 +13,7 @@ export function fetchCoinHistory(coin,period){
     }
   }
   return axios.get(`${proxy}https://rest.coinapi.io/v1/ohlcv/BITSTAMP_SPOT_${coin}_USD/latest?period_id=${period}`,config);
+  return axios.get(`${proxy}https://rest.coinapi.io/v1/ohlcv/BITSTAMP_SPOT_${coin}_USD/latest?period_id=${period}`,config);
+
+  /v1/ohlcv/BITSTAMP_SPOT_BTC_USD/history?period_id=1MIN&time_start=2016-01-01T00:00:00"
 }

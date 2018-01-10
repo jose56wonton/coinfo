@@ -25,7 +25,6 @@ class CoinTableContainer extends React.Component {
   handleRequestSort = (event, property) => {
     const orderBy = property;
     let order = 'desc';
-    console.log(property);
     if (this.state.orderBy === property && this.state.order === 'desc') {
       order = 'asc';
     }

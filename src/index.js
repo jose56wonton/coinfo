@@ -7,7 +7,6 @@ import registerServiceWorker from './utils/registerServiceWorker';
 import thunk from 'redux-thunk';
 import 'typeface-roboto';
 import reducers from './reducers';
-import CoinGraph from './components/show/coin_graph';
 import Index from './components/index';
 import Show from './components/show';
 const store = createStore(reducers,applyMiddleware(thunk));
