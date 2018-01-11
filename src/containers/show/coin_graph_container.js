@@ -91,8 +91,16 @@ class CoinInfoContainer extends Component {
     const graphLabel = this.props.history
       .map(a => moment(a.time_close).utc().format(this.getDates().format))
       .reverse();
+      console.log(graphLabel.length);
     if (!coin) {
       return null;
+    }
+    if(graphData.length === 0){
+      return (
+        <div>
+          <CoinIntro coin={coin} />         
+        </div>
+      );
     }
     return (
       <div>

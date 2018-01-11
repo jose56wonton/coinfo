@@ -13,9 +13,7 @@ const styles = theme => ({
 
 function CoinGraph(props){
   const { classes,graphLabel,graphData,ticks } = props;
-   console.log(ticks);
-   console.log("labels",graphLabel);
-   console.log("data",graphData)
+  
   const data = {
     labels: graphLabel,
     datasets: [

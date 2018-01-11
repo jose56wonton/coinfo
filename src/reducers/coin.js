@@ -10,8 +10,7 @@ export default function(state=[], action){
           ele.percent_change_24h !== null &&
           ele.percent_change_7d !==null);
       })
-      //console.log('LIST',action.payload)
-      return coin;
+      return coin;    
     case SORT_COIN_LIST:
       // If the values are string 
       if(action.payload.orderBy === 'name'){
