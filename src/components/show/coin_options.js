@@ -44,8 +44,8 @@ function CoinGraph(props) {
                 <MenuItem value="1DAY">24 Hours</MenuItem>
                 <MenuItem value="7DAY">7 Days</MenuItem>
                 <MenuItem value="1MTH">1 Month</MenuItem>
+                <MenuItem value="6MTH">6 Months</MenuItem>
                 <MenuItem value="1YRS">1 Year</MenuItem>
-                <MenuItem value="5YRS">5 Year</MenuItem>
               </Select>
             </FormControl>
           </form>

@@ -12,8 +12,10 @@ const styles = theme => ({
 });
 
 function CoinGraph(props){
-  const { classes,graphLabel,graphData } = props;
-   
+  const { classes,graphLabel,graphData,ticks } = props;
+   console.log(ticks);
+   console.log("labels",graphLabel);
+   console.log("data",graphData)
   const data = {
     labels: graphLabel,
     datasets: [
@@ -44,7 +46,14 @@ function CoinGraph(props){
     scales: {
         xAxes: [{
           ticks: {
-            maxTicksLimit: 6
+            autoSkip: false,
+            callback: function(value, index, values) {
+              if(index % 5 === 0)
+                return value;
+              else
+                return "";
+          }
+            
         } 
           
         }],
