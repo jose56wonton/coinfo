@@ -17,38 +17,38 @@ class CoinInfoContainer extends Component {
       case "1DAY":
         return {
           start: moment().subtract("days", 1).toISOString(),
-          inc: "15MIN",
+          inc: "2MIN",
           format: "DD MMM H:mm"
         };
       case "7DAY":
         return {
           start: moment().subtract("days", 7).toISOString(),
-          inc: "2HRS",
+          inc: "15MIN",
           format: "DD MMM H:mm"
         };
       case "1MTH":
         return {
           start: moment().subtract("months", 1).toISOString(),
-          inc: "8HRS",
+          inc: "1HRS",
           format: "DD MMM H:mm"
         };
       case "1YRS":
         return {
           start: moment().subtract("years", 1).toISOString(),
-          inc: "7DAY",
+          inc: "12HRS",
           format: "MMM DD, YY"
         };
         return [];
       case "5YRS":
         return {
           start: moment().subtract("years", 5).toISOString(),
-          inc: "1MTH",
+          inc: "5DAY",
           format: "MMM DD, YY"
         };
       default:
         return {
           start: moment().subtract("days", 1).toISOString(),
-          inc: "15MIN",
+          inc: "2MIN",
           format: "DD MMM H:mm"
         };
     }
@@ -64,7 +64,6 @@ class CoinInfoContainer extends Component {
       this.getDates().start,
       this.getDates().inc
     );
-    //this.props.getThatShit(this.props.params.params.name,this.getDates()[0],this.getDates()[1],this.state.time);
   }
   handleChange = event => {
     this.setState({ time: event.target.value });
