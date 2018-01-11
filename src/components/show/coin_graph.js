@@ -10,21 +10,15 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 1,
   }),
 });
+
 function CoinGraph(props){
-  const { classes,coin,time,history } = props;
-  if(history== null){
-    return null;
-  }
-  const labels = history.map(a => moment(a.time_close).utc().format('MM-DD-YYYY'));
-  const dataSet = history.map(a => a.price_close)
-  const maxPrice = Math.max(...dataSet) * 1.2;
-  const minPrice = Math.min(...dataSet) * .8;
-  console.log("coin_graph_container",props,labels,dataSet);
+  const { classes,graphLabel,graphData } = props;
+   
   const data = {
-    labels: labels,
+    labels: graphLabel,
     datasets: [
       {
-        label: 'My First dataset',
+        label: 'Nice',
         fill: false,
         lineTension: 0.1,
         backgroundColor: 'rgba(75,192,192,0.4)',
@@ -42,23 +36,20 @@ function CoinGraph(props){
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: dataSet
+        data: graphData
       }
     ]
   };
   const options = {
     scales: {
         xAxes: [{
-            type: 'time',
           ticks: {
-            maxTicksLimit: 10
-          }
+            maxTicksLimit: 6
+        } 
           
         }],
         yAxes: [{
           ticks: {
-              min: minPrice,
-              max: maxPrice,
               maxTicksLimit: 6
           }
       }]

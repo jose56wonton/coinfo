@@ -18,8 +18,8 @@ export function sortCoinList(order,orderBy){
     payload: {order,orderBy}
   }
 }
-export function fetchCoinHistory(coin,start,finish){
-  const request = api.fetchCoinHistory(coin,start,finish);
+export function fetchCoinHistory(coin,start,finish,period){
+  const request = api.fetchCoinHistory(coin,start,finish,period);
   return (dispatch) => {
     request.then(({data}) => {
       dispatch({type: FETCH_COIN_HISTORY, payload: data})           

@@ -6,14 +6,12 @@ export function fetchCoinList(){
 export function fetchCoinPrices(coins){
   return axios.get(`${proxy}https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${coins}&tsyms=USD`)
 }
-export function fetchCoinHistory(coin,period){
+export function fetchCoinHistory(coin,start,period){
   const config = {
     headers: {
-      "X-CoinAPI-Key":"48D6C349-197A-4729-AFB4-9700774D8209"
+      //"X-CoinAPI-Key":"48D6C349-197A-4729-AFB4-9700774D8209"
+      "X-CoinAPI-Key": "9AEA024C-45A6-45CF-9E5E-66BC8C8641F6"
     }
   }
-  return axios.get(`${proxy}https://rest.coinapi.io/v1/ohlcv/BITSTAMP_SPOT_${coin}_USD/latest?period_id=${period}`,config);
-  return axios.get(`${proxy}https://rest.coinapi.io/v1/ohlcv/BITSTAMP_SPOT_${coin}_USD/latest?period_id=${period}`,config);
-
-  /v1/ohlcv/BITSTAMP_SPOT_BTC_USD/history?period_id=1MIN&time_start=2016-01-01T00:00:00"
+  return axios.get(`${proxy}https://rest.coinapi.io/v1/ohlcv/BITSTAMP_SPOT_${coin}_USD/latest?period_id=${period}&time_start=${start}`,config);  
 }
