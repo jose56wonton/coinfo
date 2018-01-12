@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import * as actions from "../../actions";
 import CoinGraph from "../../components/show/coin_graph";
 import CoinOptions from "../../components/show/coin_options";
+import CoinIntro from "../../components/show/coin_intro";
 import moment from "moment";
 import Grid from "material-ui/Grid/Grid";
+import PaperTile from "../../components/general/paper_tile";
 class CoinInfoContainer extends Component {
   constructor(props) {
     super(props);
@@ -62,7 +64,7 @@ class CoinInfoContainer extends Component {
   componentWillMount() {
     //this.props.fetchCoinHistory(this.props.params.params.name,this.state.time);
 
-    if(this.props.coins.length === 0){   
+    if (this.props.coins.length === 0) {
       this.props.fetchCoinList();
     }
     this.props.fetchCoinHistory(
@@ -92,6 +94,24 @@ class CoinInfoContainer extends Component {
     if (!coin) {
       return null;
     }
+    if (this.props.history.length === 0 && !this.props.fetching.history) {
+      return (
+        <div className="grid-margin">
+          <Grid container spacing={24}>
+            <Grid item xs={12}>
+              <PaperTile title="Graph Unavailable D:" />
+            </Grid>
+            <Grid item xs={12}>
+              <CoinIntro
+                coin={coin}
+                time={this.state.time}
+                handleChange={this.handleChange}
+              />
+            </Grid>
+          </Grid>
+        </div>
+      );
+    }
 
     return (
       <div className="grid-margin">
@@ -120,7 +140,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     coins: state.coins,
     history: state.history,
-    path: ownProps
+    path: ownProps,
+    fetching: state.fetching
   };
 };
 export default connect(mapStateToProps, actions)(CoinInfoContainer);
