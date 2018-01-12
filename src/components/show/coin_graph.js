@@ -1,38 +1,38 @@
-import React from 'react';
-import {Line} from 'react-chartjs-2';
-import Paper from 'material-ui/Paper';
-import { withStyles } from 'material-ui/styles';
-import moment from 'moment';
+import React from "react";
+import { Line } from "react-chartjs-2";
+import Paper from "material-ui/Paper";
+import { withStyles } from "material-ui/styles";
+import PropTypes from 'prop-types';
 const styles = theme => ({
   root: theme.mixins.gutters({
     paddingTop: 16,
     paddingBottom: 16,
-    marginTop: theme.spacing.unit * 1,
-  }),
+    marginTop: theme.spacing.unit * 1
+  })
 });
 
-function CoinGraph(props){
-  const { classes,graphLabel,graphData,ticks } = props;
-  
+function CoinGraph(props) {
+  const { classes, graphLabel, graphData } = props;
+  console.log(classes);
   const data = {
     labels: graphLabel,
     datasets: [
       {
-        label: 'Nice',
+        label: "Nice",
         fill: false,
         lineTension: 0.1,
-        backgroundColor: 'rgba(75,192,192,0.4)',
-        borderColor: 'rgba(75,192,192,1)',
-        borderCapStyle: 'butt',
+        backgroundColor: "#80CBC4",
+        borderColor: "#00796B",
+        borderCapStyle: "butt",
         borderDash: [],
         borderDashOffset: 0.0,
-        borderJoinStyle: 'miter',
-        pointBorderColor: 'rgba(75,192,192,1)',
-        pointBackgroundColor: '#fff',
+        borderJoinStyle: "miter",
+        pointBorderColor: "#00796B",
+        pointBackgroundColor: "#fff",
         pointBorderWidth: 1,
         pointHoverRadius: 5,
-        pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointHoverBackgroundColor: "#00796B",
+        pointHoverBorderColor: "#80CBC4",
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
@@ -41,35 +41,41 @@ function CoinGraph(props){
     ]
   };
   const options = {
+    legend: {
+      display: false
+    },
+    tooltips: {
+      enabled: false
+    },
     scales: {
-        xAxes: [{
+      xAxes: [
+        {
           ticks: {
             autoSkip: false,
             callback: function(value, index, values) {
-              if(index % 5 === 0)
-                return value;
-              else
-                return "";
+              if (index % 5 === 0) return value;
+              else return "";
+            }
           }
-            
-        } 
-          
-        }],
-        yAxes: [{
+        }
+      ],
+      yAxes: [
+        {
           ticks: {
-              maxTicksLimit: 6
+            maxTicksLimit: 6
           }
-      }]
+        }
+      ]
     }
+  };
+
+  return (
+    <Paper className={classes.root} elevation={4}>
+      <Line data={data} options={options} />
+    </Paper>
+  );
 }
-  
-    return (
-      <div>
-      <Paper className={classes.root} elevation={4}> 
-        <Line data={data} options={options}/>
-      </Paper>
-      </div>
-    );
-  
+CoinGraph.propTypes = {
+  classes: PropTypes.object.isRequired,
 };
 export default withStyles(styles)(CoinGraph);

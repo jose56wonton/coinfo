@@ -5,15 +5,16 @@ import { LinearProgress } from 'material-ui/Progress';
 
 const styles = theme => ({
   root: {
-    width: '100%',
-  },
+    width: '100%',    
+  }, 
+  
 });
 
 function LinearQuery(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <LinearProgress mode="query" />      
+      <LinearProgress className={classes.color} mode="query" />      
     </div>
   );
 }

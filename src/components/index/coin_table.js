@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
-import Table, {
-  TableBody,
+import Table, {  
   TableCell,
   TableFooter,
   TablePagination,
@@ -11,9 +10,9 @@ import Table, {
 import Paper from "material-ui/Paper";
 import Head from "./head";
 import CoinTableRowContainer from "../../containers/index/coin_table_row_container";
-import Loading from "../general/loading";
+
 function CoinTable(props) {
-  const { classes, fetching } = props;
+  const { classes } = props;
   const { data, order, orderBy, rowsPerPage, page } = props;
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);

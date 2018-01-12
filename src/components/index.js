@@ -1,17 +1,25 @@
-import React, { Component } from 'react';
-import NavContainer from '../containers/general/nav_container';
-import CoinTableContainer from '../containers/index/coin_table_container';
+import React from "react";
+import NavContainer from "../containers/general/nav_container";
+import CoinTableContainer from "../containers/index/coin_table_container";
+import withStyles from "material-ui/styles/withStyles";
 
+const styles = theme => ({
+  container: {
+    margin: "0 auto",
+    maxWidth: 1100
+  }
+});
 
-class Index extends Component {
-  render() {
-    return (
-      <div>
-        <NavContainer />
+function Index(props) {
+  const { classes } = props;
+  return (
+    <div>
+      <NavContainer />
+      <div className={classes.container}>
         <CoinTableContainer />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
-export default Index;
+export default withStyles(styles)(Index);

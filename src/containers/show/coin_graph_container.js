@@ -17,14 +17,14 @@ class CoinInfoContainer extends Component {
     switch (this.state.time) {
       case "1DAY":
         return {
-          start: moment().subtract("days", 1).toISOString(),
+          start: moment().subtract(1,"days").toISOString(),
           inc: "15MIN",
           format: "DD MMM H:mm",
           ticks: 6
         };
       case "7DAY":
         return {
-          start: moment().subtract("days", 7).toISOString(),
+          start: moment().subtract(7,"days").toISOString(),
           inc: "2HRS",
           format: "DD MMM H:mm",
           ticks: 7
@@ -32,14 +32,14 @@ class CoinInfoContainer extends Component {
         };
       case "1MTH":
         return {
-          start: moment().subtract("months", 1).toISOString(),
+          start: moment().subtract(1,"months").toISOString(),
           inc: "8HRS",
           format: "DD MMM H:mm",
           ticks: 10
         };
       case "6MTH":
         return {
-          start: moment().subtract("months", 6).toISOString(),
+          start: moment().subtract(6,"months").toISOString(),
           inc: "3DAY",
           format: "MMM DD, YY",
           ticks: 6
@@ -47,14 +47,14 @@ class CoinInfoContainer extends Component {
         };
       case "1YRS":
         return {
-          start: moment().subtract("years", 1).toISOString(),
+          start: moment().subtract(1,"years").toISOString(),
           inc: "7DAY",
           format: "MMM DD, YY",
           ticks: 6
         };
       default:
         return {
-          start: moment().subtract("days", 1).toISOString(),
+          start: moment().subtract(1,"days").toISOString(),
           inc: "2MIN",
           format: "DD MMM H:mm",
           ticks: 6
@@ -91,7 +91,6 @@ class CoinInfoContainer extends Component {
     const graphLabel = this.props.history
       .map(a => moment(a.time_close).utc().format(this.getDates().format))
       .reverse();
-      console.log(graphLabel.length);
     if (!coin) {
       return null;
     }

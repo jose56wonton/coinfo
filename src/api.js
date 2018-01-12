@@ -13,6 +13,5 @@ export function fetchCoinHistory(coin,start,inc){
       "X-CoinAPI-Key": "9AEA024C-45A6-45CF-9E5E-66BC8C8641F6"
     }
   }
-  console.log(`${proxy}https://rest.coinapi.io/v1/ohlcv/BITSTAMP_SPOT_${coin}_USD/latest?period_id=${inc}&time_start=${start}`);
   return axios.get(`${proxy}https://rest.coinapi.io/v1/ohlcv/BITSTAMP_SPOT_${coin}_USD/latest?period_id=${inc}&time_start=${start}`,config);  
 }

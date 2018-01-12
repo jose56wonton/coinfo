@@ -9,6 +9,7 @@ import 'typeface-roboto';
 import reducers from './reducers';
 import Index from './components/index';
 import Show from './components/show';
+import './assets/styles.css';
 const store = createStore(
   reducers,
   compose(

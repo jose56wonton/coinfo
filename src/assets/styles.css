@@ -1,0 +1,9 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  background: linear-gradient(45deg, #EDE7F6 30%, #fff 90%); }
+
+.margin-top {
+  margin-top: 12px; }
+
+/*# sourceMappingURL=styles.css.map */

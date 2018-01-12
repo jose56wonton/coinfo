@@ -17,12 +17,8 @@ function PaperTile(props) {
   return (
     <div>
       <Paper className={classes.root} elevation={4}>
-        <Typography type="headline" component="h3">
-          {title}
-        </Typography>
-        
-        <Typography component="p">
-          {para}
+        <Typography type="subheading" component="h5">
+          {title} {para}
         </Typography>
       </Paper>
     </div>

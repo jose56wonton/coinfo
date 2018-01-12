@@ -4,12 +4,11 @@ import { withStyles } from "material-ui/styles";
 import AppBar from "material-ui/AppBar";
 import Toolbar from "material-ui/Toolbar";
 import Typography from "material-ui/Typography";
-import TextField from "material-ui/TextField";
 import Loading from './loading';
 // #F44336
 const styles = theme => ({
   root: {
-    background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+    background: "linear-gradient(45deg, #512DA8 30%, #311B92 90%)",
     width: "100%"
   },
   flex: {
@@ -24,7 +23,6 @@ const styles = theme => ({
 
 function Nav(props) {
   const { classes, handleClick,fetching } = props;
-  console.log(fetching);
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -38,7 +36,7 @@ function Nav(props) {
           >
             CoInfo
           </Typography>
-          <TextField className={classes.textField} margin="normal" />
+          
         </Toolbar>
       </AppBar>
       {(fetching.coin === true || fetching.history === true) ? <Loading/> : null}
