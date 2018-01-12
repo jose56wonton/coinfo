@@ -17,7 +17,7 @@ class CoinTableContainer extends React.Component {
     };
   }
 
-  componentWillMount(){
+  componentDidMount(){
     if(this.props.coins.length === 0){   
       this.props.fetchCoinList();
     } 
