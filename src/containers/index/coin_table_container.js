@@ -15,6 +15,9 @@ class CoinTableContainer extends React.Component {
       page: 0,
       rowsPerPage: 10,
     };
+    if(this.props.coins.length === 0){   
+      this.props.fetchCoinList();
+    } 
   }
 
   componentDidMount(){
