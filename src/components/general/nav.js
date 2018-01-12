@@ -9,7 +9,8 @@ import Loading from './loading';
 const styles = theme => ({
   root: {
     background: "linear-gradient(45deg, #512DA8 30%, #311B92 90%)",
-    width: "100%"
+    width: "100%",
+    position: 'relative'
   },
   flex: {
     flex: 1
@@ -35,8 +36,7 @@ function Nav(props) {
             className={classes.flex}
           >
             CoInfo
-          </Typography>
-          
+          </Typography>          
         </Toolbar>
       </AppBar>
       {(fetching.coin === true || fetching.history === true) ? <Loading/> : null}

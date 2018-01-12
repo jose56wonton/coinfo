@@ -17,8 +17,12 @@ function Show(props) {
     <div>
       <NavContainer />
       <div className={classes.container}>
-        <CoinGraphContainer params={props.match} />
-        <CoinInfoContainer params={props.match} />
+        <div className="grid-margin">
+          <CoinGraphContainer params={props.match} />
+        </div>
+        <div className="grid-margin">
+          <CoinInfoContainer params={props.match} />
+        </div>
       </div>
     </div>
   );

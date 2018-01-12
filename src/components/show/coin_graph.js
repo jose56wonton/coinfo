@@ -6,14 +6,13 @@ import PropTypes from 'prop-types';
 const styles = theme => ({
   root: theme.mixins.gutters({
     paddingTop: 16,
-    paddingBottom: 16,
-    marginTop: theme.spacing.unit * 1
+    paddingBottom: 16
   })
 });
 
 function CoinGraph(props) {
   const { classes, graphLabel, graphData } = props;
-  console.log(classes);
+  console.log("CoinGraph",classes);
   const data = {
     labels: graphLabel,
     datasets: [
@@ -71,7 +70,7 @@ function CoinGraph(props) {
 
   return (
     <Paper className={classes.root} elevation={4}>
-      <Line data={data} options={options} />
+      <Line data={data} options={options} />    
     </Paper>
   );
 }

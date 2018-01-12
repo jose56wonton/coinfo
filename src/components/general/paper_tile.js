@@ -6,28 +6,32 @@ import Typography from 'material-ui/Typography';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
+    'margin-top': 0,
     paddingTop: 16,
-    paddingBottom: 16,
-    marginTop: theme.spacing.unit * 1,
+    paddingBottom: 16
   }),
+  type:{
+    display: 'inline'
+  }
 });
 
 function PaperTile(props) {
   const { classes,title,para } = props;
+  console.log("PaperTile",classes);
   return (
-    <div>
       <Paper className={classes.root} elevation={4}>
-        <Typography type="subheading" component="h5">
-          {title} {para}
+        <Typography type="title" className={classes.type} component="h5">
+          {title}
+        </Typography>
+        <Typography type="subheading" className={classes.type} component="h5">
+          {para}
         </Typography>
       </Paper>
-    </div>
   );
 }
 
 PaperTile.propTypes = {
   classes: PropTypes.object.isRequired,
-
 };
 
 export default withStyles(styles)(PaperTile);
