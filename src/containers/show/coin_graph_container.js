@@ -59,10 +59,10 @@ class CoinInfoContainer extends Component {
         };
     }
   }
-  componentDidMount() {
+  componentWillMount() {
     //this.props.fetchCoinHistory(this.props.params.params.name,this.state.time);
 
-    if (this.props.coins) {
+    if(this.props.coins.length === 0){   
       this.props.fetchCoinList();
     }
     this.props.fetchCoinHistory(

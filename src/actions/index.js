@@ -19,7 +19,7 @@ export function fetchCoinList() {
     request.then(({ data }) => {
       dispatch({ type: FETCH_COIN_LIST, payload: data });
       dispatch(toggleFetching("coin"));
-    });
+    }).catch(()=>{dispatch(toggleFetching("coin"));});
   };
 }
 export function fetchCoinHistory(coin,start, inc, num) {
@@ -32,7 +32,7 @@ export function fetchCoinHistory(coin,start, inc, num) {
         payload: data
        });
        dispatch(toggleFetching("history"))
-    });
+    }).catch(()=>{dispatch(toggleFetching("history"));});;
   };
 }
 // State Mutation
