@@ -92,24 +92,26 @@ class CoinInfoContainer extends Component {
     if (!coin) {
       return null;
     }
-    
+
     return (
-      <Grid container spacing={24}>
-        <Grid item xs={12}>
-          <CoinGraph
-            graphData={graphData}
-            graphLabel={graphLabel}
-            ticks={this.getDates().ticks}
-          />
+      <div className="grid-margin">
+        <Grid container spacing={24}>
+          <Grid item xs={12}>
+            <CoinGraph
+              graphData={graphData}
+              graphLabel={graphLabel}
+              ticks={this.getDates().ticks}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <CoinOptions
+              coin={coin}
+              time={this.state.time}
+              handleChange={this.handleChange}
+            />
+          </Grid>
         </Grid>
-        <Grid  item xs={12}>
-          <CoinOptions
-            coin={coin}
-            time={this.state.time}
-            handleChange={this.handleChange}
-          />
-        </Grid>
-      </Grid>
+      </div>
     );
   }
 }

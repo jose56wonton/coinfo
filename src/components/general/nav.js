@@ -8,7 +8,7 @@ import Loading from './loading';
 // #F44336
 const styles = theme => ({
   root: {
-    background: "linear-gradient(45deg, #512DA8 30%, #311B92 90%)",
+    background: "linear-gradient(45deg, #13547a 30%, #80d0c7 80%)",
     width: "100%",
     position: 'relative'
   },
@@ -26,7 +26,7 @@ function Nav(props) {
   const { classes, handleClick,fetching } = props;
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar className={classes.root} position="static">
         <Toolbar>
           <Typography
             style={{ cursor: "pointer" }}

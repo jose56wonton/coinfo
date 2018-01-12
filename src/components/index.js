@@ -3,7 +3,7 @@ import NavContainer from "../containers/general/nav_container";
 import CoinTableContainer from "../containers/index/coin_table_container";
 import withStyles from "material-ui/styles/withStyles";
 
-const styles = theme => ({
+const styles = nice => ({
   container: {
     margin: "0 auto",
     maxWidth: 1100

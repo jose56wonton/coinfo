@@ -14,7 +14,8 @@ const styles = theme => ({
   },
   formControl: {
     margin: theme.spacing.unit,
-    minWidth: 120
+    minWidth: 120,
+    color: "#80CBC4"
   },
   selectEmpty: {
     marginTop: theme.spacing.unit * 2
@@ -40,11 +41,12 @@ function CoinGraph(props) {
       </Typography>
       <form className={classes.container} autoComplete="off">
         <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="age-simple">Age</InputLabel>
+          <InputLabel htmlFor="time">Time Frame</InputLabel>
           <Select
             value={time}
             onChange={handleChange}
-            input={<Input name="age" id="age-simple" />}
+            input={<Input name="time frame" id="time" />}
+            labelStyle={{ color: 'green' }}
           >
             <MenuItem value="1DAY">24 Hours</MenuItem>
             <MenuItem value="7DAY">7 Days</MenuItem>

@@ -17,7 +17,6 @@ const styles = theme => ({
 
 function PaperTile(props) {
   const { classes,title,para } = props;
-  console.log("PaperTile",classes);
   return (
       <Paper className={classes.root} elevation={4}>
         <Typography type="title" className={classes.type} component="h5">
