@@ -19,7 +19,7 @@ Coinfo is a Crypo Currency tracker inspired by [Coin Ranking](https://coinrankin
   Used to give me peace of mind. Will be using this more in the future
 
 ### Credit
-I am using two coin api's for FREE. Thanks a bunch to these guys:
+I am using two coin api's for free. Thanks a bunch to these guys:
 1. [coinmarketcap](https://coinmarketcap.com)
 2. [coinapi.io](https://www.coinapi.io)
 
