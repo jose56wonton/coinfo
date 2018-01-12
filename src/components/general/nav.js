@@ -5,6 +5,7 @@ import AppBar from "material-ui/AppBar";
 import Toolbar from "material-ui/Toolbar";
 import Typography from "material-ui/Typography";
 import TextField from "material-ui/TextField";
+import Loading from './loading';
 // #F44336
 const styles = theme => ({
   root: {
@@ -22,7 +23,8 @@ const styles = theme => ({
 });
 
 function Nav(props) {
-  const { classes, handleClick } = props;
+  const { classes, handleClick,fetching } = props;
+  console.log(fetching);
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -36,10 +38,11 @@ function Nav(props) {
           >
             CoInfo
           </Typography>
-
           <TextField className={classes.textField} margin="normal" />
         </Toolbar>
       </AppBar>
+      {(fetching.coin === true || fetching.history === true) ? <Loading/> : null}
+      
     </div>
   );
 }

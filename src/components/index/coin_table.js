@@ -11,24 +11,29 @@ import Table, {
 import Paper from "material-ui/Paper";
 import Head from "./head";
 import CoinTableRowContainer from "../../containers/index/coin_table_row_container";
-
+import Loading from "../general/loading";
 function CoinTable(props) {
-  const { classes } = props;
+  const { classes, fetching } = props;
   const { data, order, orderBy, rowsPerPage, page } = props;
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
-  const {handleRequestSort, handleChangePage, handleChangeRowsPerPage } = props;
+  const {
+    handleRequestSort,
+    handleChangePage,
+    handleChangeRowsPerPage
+  } = props;
 
   const tableData = data
-      .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-      .map((coin, i) => {
-        return <CoinTableRowContainer key={i} coin={coin} />;
-      });
-  
+    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+    .map((coin, i) => {
+      return <CoinTableRowContainer key={i} coin={coin} />;
+    });
+
   const extraRows = (
     <TableRow style={{ height: 49 * emptyRows }}>
       <TableCell colSpan={6} />
-    </TableRow>)
+    </TableRow>
+  );
 
   return (
     <Paper className={classes.root}>
@@ -40,10 +45,10 @@ function CoinTable(props) {
             onRequestSort={handleRequestSort}
             rowCount={data.length}
           />
-          <TableBody>
+          <tbody>
             {tableData}
             {extraRows}
-          </TableBody>
+          </tbody>
           <TableFooter>
             <TableRow>
               <TablePagination

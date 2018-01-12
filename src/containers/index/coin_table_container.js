@@ -43,6 +43,7 @@ class CoinTableContainer extends React.Component {
   render() {
     return(
     <CoinTable 
+    
     classes={this.props.classes}
     data={this.props.coins}
     order={this.state.order}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../../components/general/nav';
 import {withRouter} from 'react-router';
+import { connect } from 'react-redux';
 class NavContainer extends Component {
   constructor(props){
     super(props);
@@ -11,9 +12,13 @@ class NavContainer extends Component {
   }
   render() {
     return (
-      <Nav handleClick={this.handleClick}/>
+      <Nav fetching={this.props.fetching} handleClick={this.handleClick}/>
     );
   }
 }
-
-export default withRouter(NavContainer);
+const mapStateToProps = (state, ownProps) => {
+  return {
+    fetching: state.fetching
+  }
+}
+export default connect(mapStateToProps)(withRouter(NavContainer));
