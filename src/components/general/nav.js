@@ -8,7 +8,7 @@ import Loading from './loading';
 // #F44336
 const styles = theme => ({
   root: {
-    background: "linear-gradient(45deg, #13547a 30%, #80d0c7 80%)",
+    background: "linear-gradient(45deg, #13547a 30%, #286386 80%)",
     width: "100%",
     position: 'relative'
   },
