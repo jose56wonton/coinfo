@@ -13,13 +13,8 @@ export function toggleFetching(stateToAdjust){
 }
 // Api
 
-function sleepFor( sleepDuration ){
-  var now = new Date().getTime();
-  while(new Date().getTime() < now + sleepDuration){ /* do nothing */ } 
-}
-function sleepThenAct(){ console.log(1);sleepFor(500);console.log(3);return api.fetchCoinList(); }
 export function fetchCoinList() {
-  const request = sleepThenAct();
+  const request = api.fetchCoinList();
   
   return dispatch => {
     dispatch(toggleFetching("coin"));

@@ -16,7 +16,7 @@ class CoinTableContainer extends React.Component {
   }
   componentDidMount(){
     if(this.props.coins == null || this.props.coins.length === 0){
-      this.props.fetchCoinList();
+      //this.props.fetchCoinList();
     }
   }
   handleRequestSort = (event, property) => {
@@ -37,6 +37,7 @@ class CoinTableContainer extends React.Component {
   };
   handleClick = () => {
     this.props.toggleAlert();
+    this.props.fetchCoinList();
   }
   render() {
     return (
