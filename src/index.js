@@ -9,7 +9,7 @@ import reducers from './reducers';
 import Index from './components/index';
 import Show from './components/show';
 import './assets/styles.css';
-const store = createStore(
+export const store = createStore(
   reducers,
   applyMiddleware(thunk)  
 )
@@ -20,6 +20,7 @@ compose(
     window.devToolsExtension ? window.devToolsExtension() : f => f,    
   )
 */
+
 ReactDOM.render(
   <Provider store={store}>
      <BrowserRouter>

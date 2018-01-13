@@ -2,7 +2,6 @@ import CoinTable from "../../components/index/coin_table";
 import React from "react";
 import * as actions from "../../actions";
 import { connect } from "react-redux";
-
 class CoinTableContainer extends React.Component {
   constructor(props, context) {
     super(props, context);
