@@ -22,8 +22,8 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route path="/coin/:name" component={Show} />
-        <Route path="/" component={Index} />
+        <Route path="/coinfo/:name" component={Show} />
+        <Route path="/coinfo" component={Index} />
       </Switch>
     </BrowserRouter>
   </Provider>,

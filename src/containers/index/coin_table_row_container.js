@@ -8,7 +8,7 @@ class CoinTableRowContainer extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick(symbol){
-    this.props.history.push(`/coin/${symbol}`);
+    this.props.history.push(`/coinfo/${symbol}`);
   }
   render() {     
     var coin = this.props.coin;

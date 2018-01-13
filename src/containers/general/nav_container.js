@@ -8,7 +8,7 @@ class NavContainer extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick(){
-    this.props.history.push(`/`);
+    this.props.history.push(`/coinfo`);
   }
   render() {
     return (
