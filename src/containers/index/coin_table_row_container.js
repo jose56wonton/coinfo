@@ -10,7 +10,7 @@ class CoinTableRowContainer extends Component {
   handleClick(symbol){
     this.props.history.push(`/coin/${symbol}`);
   }
-  render() {    
+  render() {     
     var coin = this.props.coin;
     console.log(coin);
     coin.price_usd = numeral(coin.price_usd).format('$0,0');
