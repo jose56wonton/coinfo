@@ -24,6 +24,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/coinfo/:name" component={Show} />
         <Route path="/coinfo" component={Index} />
+        <Route path="/" component={Index} />
       </Switch>
     </BrowserRouter>
   </Provider>,
