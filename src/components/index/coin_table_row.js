@@ -12,7 +12,7 @@ function CoinTableRow(props) {
       key={coin.rank}
     >  
       <TableCell>
-        {coin.name}
+        {coin.rank}. {coin.name}
       </TableCell>
       <TableCell numeric>
         {coin.price_usd}
