@@ -15,11 +15,13 @@ export function toggleFetching(stateToAdjust){
 export function fetchCoinList() {
   const request = api.fetchCoinList();
   return dispatch => {
-    dispatch(toggleFetching("coin"))
+    dispatch(toggleFetching("coin"));
+    console.log('nice');
     request.then(({ data }) => {
       dispatch({ type: FETCH_COIN_LIST, payload: data });
       dispatch(toggleFetching("coin"));
-    }).catch(()=>{dispatch(toggleFetching("coin"));});
+    }).catch(()=>{
+      dispatch(toggleFetching("coin"));});
   };
 }
 export function fetchCoinHistory(coin,start, inc, num) {

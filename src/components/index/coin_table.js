@@ -21,6 +21,7 @@ function CoinTable(props) {
     handleChangePage,
     handleChangeRowsPerPage
   } = props;
+  
 
   const tableData = data
     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)

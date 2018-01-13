@@ -14,8 +14,10 @@ class CoinTableContainer extends React.Component {
       rowsPerPage: 10
     };
   }
-  componentWillMount() {
-    this.props.fetchCoinList();
+  componentDidMount(){
+    if(this.props.coins == null || this.props.coins.length === 0){
+      this.props.fetchCoinList();
+    }
   }
   handleRequestSort = (event, property) => {
     const orderBy = property;
