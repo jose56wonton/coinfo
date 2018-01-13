@@ -1,18 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
-import {BrowserRouter, Route,Switch} from 'react-router-dom';
-import thunk from 'redux-thunk';
-import 'typeface-roboto';
-import reducers from './reducers';
-import Index from './components/index';
-import Show from './components/show';
-import './assets/styles.css';
-export const store = createStore(
-  reducers,
-  applyMiddleware(thunk)  
-)
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import thunk from "redux-thunk";
+import "typeface-roboto";
+import reducers from "./reducers";
+import Index from "./components/index";
+import Show from "./components/show";
+import "./assets/styles.css";
+export const store = createStore(reducers, applyMiddleware(thunk));
 /*
 compose(
     compose is from redux... I was using it to do redux devtools, but it was messing with 
@@ -23,11 +20,12 @@ compose(
 
 ReactDOM.render(
   <Provider store={store}>
-     <BrowserRouter>
-       <Switch>
-         <Route path="/coin/:name" component={Show}/>
-         <Route path="/" component={Index} />
-       </Switch>
-     </BrowserRouter>
-   </Provider>, document.getElementById('root'));
-
+    <BrowserRouter>
+      <Switch>
+        <Route path="/coin/:name" component={Show} />
+        <Route path="/" component={Index} />
+      </Switch>
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById("root")
+);

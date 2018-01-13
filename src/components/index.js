@@ -2,6 +2,7 @@ import React from "react";
 import NavContainer from "../containers/general/nav_container";
 import CoinTableContainer from "../containers/index/coin_table_container";
 import withStyles from "material-ui/styles/withStyles";
+
 const styles = nice => ({
   container: {
     margin: "0 auto",
@@ -18,6 +19,7 @@ function Index(props) {
       <div className={classes.container}>
         <CoinTableContainer />
       </div>
+      
     </div>
   );
 }

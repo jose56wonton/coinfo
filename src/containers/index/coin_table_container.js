@@ -2,6 +2,7 @@ import CoinTable from "../../components/index/coin_table";
 import React from "react";
 import * as actions from "../../actions";
 import { connect } from "react-redux";
+import AlertDialog from '../../components/general/alert_dialog';
 class CoinTableContainer extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -34,8 +35,12 @@ class CoinTableContainer extends React.Component {
   handleChangeRowsPerPage = event => {
     this.setState({ rowsPerPage: event.target.value });
   };
+  handleClick = () => {
+    this.props.toggleAlert();
+  }
   render() {
     return (
+      <div>
       <CoinTable
         classes={this.props.classes}
         data={this.props.coins}
@@ -48,12 +53,15 @@ class CoinTableContainer extends React.Component {
         handleChangePage={this.handleChangePage}
         handleChangeRowsPerPage={this.handleChangeRowsPerPage}
       />
+      <AlertDialog handleClick={this.handleClick} render={this.props.alert}/>
+      </div>
     );
   }
 }
 const mapStateToProps = (state, ownProps) => {
   return {
-    coins: state.coins
+    coins: state.coins,
+    alert: state.alert
   };
 };
 export default connect(mapStateToProps, actions)(CoinTableContainer);

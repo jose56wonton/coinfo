@@ -62,8 +62,6 @@ class CoinInfoContainer extends Component {
     }
   }
   componentWillMount() {
-    //this.props.fetchCoinHistory(this.props.params.params.name,this.state.time);
-
     if (this.props.coins.length === 0) {
       this.props.fetchCoinList();
     }
@@ -94,27 +92,24 @@ class CoinInfoContainer extends Component {
     if (!coin) {
       return null;
     }
+    var content = <div />;
     if (this.props.history.length === 0 && !this.props.fetching.history) {
-      return (
-        <div className="grid-margin">
-          <Grid container spacing={24}>
-            <Grid item xs={12}>
-              <PaperTile title="Graph Unavailable D:" />
-            </Grid>
-            <Grid item xs={12}>
-              <CoinIntro
-                coin={coin}
-                time={this.state.time}
-                handleChange={this.handleChange}
-              />
-            </Grid>
+      content = (
+        <Grid container spacing={24}>
+          <Grid item xs={12}>
+            <PaperTile title="Graph Unavailable D:" para=""/>
           </Grid>
-        </div>
+          <Grid item xs={12}>
+            <CoinIntro
+              coin={coin}
+              time={this.state.time}
+              handleChange={this.handleChange}
+            />
+          </Grid>
+        </Grid>
       );
-    }
-
-    return (
-      <div className="grid-margin">
+    } else {
+      content = (
         <Grid container spacing={24}>
           <Grid item xs={12}>
             <CoinGraph
@@ -131,6 +126,12 @@ class CoinInfoContainer extends Component {
             />
           </Grid>
         </Grid>
+      );
+    }
+
+    return (
+      <div className="grid-margin">        
+        {content}        
       </div>
     );
   }
@@ -141,7 +142,8 @@ const mapStateToProps = (state, ownProps) => {
     coins: state.coins,
     history: state.history,
     path: ownProps,
-    fetching: state.fetching
+    fetching: state.fetching,
+    announcement: state.announcement
   };
 };
 export default connect(mapStateToProps, actions)(CoinInfoContainer);
