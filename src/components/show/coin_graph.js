@@ -50,18 +50,19 @@ function CoinGraph(props) {
       xAxes: [
         {
           ticks: {
-            autoSkip: false,
-            callback: function(value, index, values) {
-              if (index % 5 === 0) return value;
-              else return "";
-            }
-          }
+            autoSkip: true,
+            maxTicksLimit: 6,
+            maxRotation: 0,
+            minRotation: 0
+          },
+          zeroLineBorderDashOffset: 0
         }
       ],
       yAxes: [
         {
           ticks: {
-            maxTicksLimit: 6
+            maxTicksLimit: 6,
+
           }
         }
       ]
@@ -78,3 +79,13 @@ CoinGraph.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 export default withStyles(styles)(CoinGraph);
+
+
+/*
+autoSkip: false,
+            callback: function(value, index, values) {
+              if (index % 20 === 0 || index === 99) return value;
+              else return "";
+            },
+
+            */

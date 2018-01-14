@@ -21,42 +21,42 @@ class CoinInfoContainer extends Component {
         return {
           start: moment().subtract(1, "days").toISOString(),
           inc: "15MIN",
-          format: "DD MMM H:mm",
+          format: "MMM Do h:mm A",
           ticks: 6
         };
       case "7DAY":
         return {
           start: moment().subtract(7, "days").toISOString(),
           inc: "2HRS",
-          format: "DD MMM H:mm",
+          format: "MMM Do h:mm ",
           ticks: 7
         };
       case "1MTH":
         return {
           start: moment().subtract(1, "months").toISOString(),
           inc: "8HRS",
-          format: "DD MMM H:mm",
+          format: "MMM Do h:mm ",
           ticks: 10
         };
       case "6MTH":
         return {
           start: moment().subtract(6, "months").toISOString(),
           inc: "3DAY",
-          format: "MMM DD, YY",
+          format: "MMM Do, YY",
           ticks: 6
         };
       case "1YRS":
         return {
           start: moment().subtract(1, "years").toISOString(),
           inc: "7DAY",
-          format: "MMM DD, YY",
+          format: "MMM Do, YY",
           ticks: 6
         };
       default:
         return {
           start: moment().subtract(1, "days").toISOString(),
           inc: "2MIN",
-          format: "DD MMM H:mm",
+          format: "h:mm, MMM Do",
           ticks: 6
         };
     }
