@@ -20,7 +20,6 @@ export function fetchCoinList() {
     dispatch(toggleFetching("coin"));
     
     request.then(({ data }) => {
-      console.log("nice")
       dispatch({ type: FETCH_COIN_LIST, payload: data });
       dispatch(toggleFetching("coin"));
     }).catch(()=>{

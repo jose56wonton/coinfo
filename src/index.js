@@ -9,7 +9,6 @@ import reducers from "./reducers";
 import Index from "./components/index";
 import Show from "./components/show";
 import "./assets/styles.css";
-import Nice from './components/nice';
 
 
 export const store = createStore(reducers, applyMiddleware(thunk));
@@ -26,7 +25,6 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route path="/asdf" component={Nice} />
         <Route path="/coinfo/:name" component={Show} />
         <Route path="/coinfo" component={Index} />
         <Route path="/" component={Index} />

@@ -11,8 +11,8 @@ class CoinTableRowContainer extends Component {
     this.props.history.push(`/coinfo/${symbol}`);
   }
   render() {     
-    var coin = this.props.coin;
-    console.log(coin);
+    var coin = {...this.props.coin};
+    console.log("row container",this.props.coin);
     coin.price_usd = numeral(coin.price_usd).format('$0,0');
     coin.market_cap_usd = numeral(coin.market_cap_usd).format('$0,0');
     coin.percent_change_24h = numeral(coin.percent_change_24h).format('0,0.0')+"%";
