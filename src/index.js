@@ -9,7 +9,11 @@ import reducers from "./reducers";
 import Index from "./components/index";
 import Show from "./components/show";
 import "./assets/styles.css";
+import Nice from './components/nice';
+
+
 export const store = createStore(reducers, applyMiddleware(thunk));
+
 /*
 compose(
     compose is from redux... I was using it to do redux devtools, but it was messing with 
@@ -22,6 +26,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
+        <Route path="/asdf" component={Nice} />
         <Route path="/coinfo/:name" component={Show} />
         <Route path="/coinfo" component={Index} />
         <Route path="/" component={Index} />

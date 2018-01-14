@@ -12,12 +12,12 @@ const styles = theme => ({
 
 function CoinGraph(props) {
   const { classes, graphLabel, graphData } = props;
-
+  console.log(graphLabel)
   const data = {
     labels: graphLabel,
     datasets: [
       {
-        label: "Nice",
+        label: "Market Value",
         fill: false,
         lineTension: 0.1,
         backgroundColor: "#80d0c7",
@@ -27,7 +27,7 @@ function CoinGraph(props) {
         borderDashOffset: 0.0,
         borderJoinStyle: "miter",
         pointBorderColor: "#13547a",
-        pointBackgroundColor: "#fff",
+        pointBackgroundColor: "#13547a",
         pointBorderWidth: 1,
         pointHoverRadius: 5,
         pointHoverBackgroundColor: "#13547a",
@@ -44,7 +44,7 @@ function CoinGraph(props) {
       display: false
     },
     tooltips: {
-      enabled: false
+      enabled: true
     },
     scales: {
       xAxes: [
