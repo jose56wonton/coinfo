@@ -24,4 +24,4 @@ I am using two coin api's for free. Thanks a bunch to these guys:
 2. [coinapi.io](https://www.coinapi.io)
 
 ### See for yourself
-Check the project out [here!](http://www.joshuawootonn.com/coinfo)
+Check the project out [here!](https://jose56wonton.github.io/coinfo/)
