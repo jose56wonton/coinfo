@@ -21,7 +21,7 @@
     "redux-thunk": "^2.2.0",
     "typeface-roboto": "0.0.45"
   },
-  "homepage": "http://www.joshuawootonn.com/coinfo",
+  "homepage": "http://joshuawootonn.github.io/coinfo",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
